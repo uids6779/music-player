@@ -1,0 +1,168 @@
+body,
+dd,
+dl,
+h2 {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+//不设置cover背景图大小不够，会重复出现
+body {
+    background-size: cover;
+}
+
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 15vw;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.2);
+
+    .songImg {
+        width: 70vw;
+        height: 70vw;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+        }
+    }
+
+    .songInfo {
+        color: #fff;
+        height: 20vh;
+        text-align: center;
+        margin-top: 6vw;
+        font-size: 14px;
+
+        h2 {
+            font-weight: normal;
+            font-size: 24px;
+            margin-bottom: 3vw;
+        }
+    }
+
+    .progress {
+        height: 8vw;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        line-height: 8vh;
+        font-size: 14px;
+        text-align: center;
+
+        .curTime, .totalTime {
+            padding: 0 4vw;
+        }
+
+        .drag {
+            height: 8vw;
+            flex: 1 1 auto;
+            position: relative;
+
+            .pointer{
+                width: 2vw;
+                height: 2vw;
+                border-radius: 50%;
+                border: 2vw solid rgba(0, 255, 255, 0);
+                background: #fff;
+                position: absolute;
+                left: -3vw;
+                top: 50%;
+                margin-top: -3vw;
+                background-clip: padding-box;
+                z-index: 3;
+            }
+            .frontBg, .backBg {
+                width: 100%;
+                height: .6vw;
+                background: #fff;
+                position: absolute;
+                left: 0;
+                top: 50%;
+                margin-top: -.3vw;
+                z-index: 2;
+                width: 0;
+            }
+            .backBg {
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                z-index: 1;
+            }
+        }
+
+    }
+
+    .control {
+        width: 100vw;
+        height: 16vw;
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+
+        li {
+            width: 20%;
+            &:nth-child(1) {
+                background: url(../images/icon-like.png) no-repeat center/30%;
+                &.liked {
+                    background: url(../images/icon-like-solid.png) no-repeat center/30%;
+                }
+            }
+            &:nth-child(2) {
+                background: url(../images/icon-prev.png) no-repeat center/30%;
+            }
+            &:nth-child(3) {
+                background: url(../images/icon-play.png) no-repeat center/30%;
+                &.playing {
+                    background: url(../images/icon-pause.png) no-repeat center/30%;
+                }
+            }
+            &:nth-child(4) {
+                background: url(../images/icon-next.png) no-repeat center/30%;
+            }
+            &:nth-child(5) {
+                background: url(../images/icon-list.png) no-repeat center/30%;
+            }
+        }
+
+    }
+
+    .songList {
+        width: 100vw;
+        position: fixed;
+        bottom: 0;
+        z-index: 4;
+        background: linear-gradient(#050505, rgba(170, 170, 170, .95));
+
+        .close, dd, dt {
+            height: 12vw;
+            line-height: 12vw;
+            font-size: 16px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        dt, .close {
+            text-align: center;
+        }
+        dd {
+            padding-left: 3vw;
+            &.active {
+                color: #56b287;
+            }
+        }
+        .close {
+            border-bottom: none;
+        }
+    }
+}
